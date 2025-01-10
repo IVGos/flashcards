@@ -9,17 +9,17 @@ class Person {
   }
 
   addScore(bool) {
-    bool ? this.score++ : (this.score = this.score);
+    bool ? this.score += 10 : (this.score = this.score);
   }
 }
 
 // const obj = { playerName: 'Илья', score: 10 };
 async function SaveData(obj) {
-  const newData = `слабенький игрок: ${obj.name}\nунылый счет: ${obj.score}\n\n`;
+  const newData = `слабенький игрок: ${obj.playerName}\nунылый счет: ${obj.score}\n\n`;
   fs.appendFile('database.txt', newData);
 }
 
-SaveData(obj);
+// SaveData(obj);
 
 async function getObjectQ(name) {
   let x = await fs.readFile(`./topics/${name}_flashcard_data.txt`, 'utf-8');
@@ -49,6 +49,5 @@ async function getQuestion(strAnimal) {
 
 // getQuestion('nighthawk').then(console.log);
 
-module.exports = Person;
-module.exports = SaveData;
-module.exports = getQuestion;
+// module.exports = Person;
+module.exports = { SaveData, getQuestion, Person };

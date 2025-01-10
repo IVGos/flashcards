@@ -41,7 +41,7 @@ class View {
     }
 
     static async showResult(player){
-        console.log(`Поздравляю ${player.name}! Ты набрал ${player.score} очков `)
+        console.log(`Поздравляю ${player.playerName}! Ты набрал ${player.score} очков `)
     }
 
     static async newGame(){
