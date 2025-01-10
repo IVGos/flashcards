@@ -5,7 +5,7 @@ const { Person, getQuestion, SaveData } = require('./Model.js');
 async function Controller() {
   let username = await View.showStart();
 
-  while (/\d/.test(username)) {
+  while (/\d/.test(username) || /\s/.test(username)) {
        View.badName()
       username = await View.showStart()
   }

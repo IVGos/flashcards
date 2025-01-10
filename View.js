@@ -12,7 +12,7 @@ class View {
     }
 
     static async badName(){
-        console.log("Введите имя пользователя без цифр");
+        console.log("Введите имя пользователя без цифр и пробелов");
         
     }
 
