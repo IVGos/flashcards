@@ -1,5 +1,7 @@
 const View = require ('./View.js');
 const Person = require ('./Model.js')
+const SaveData = require ('./Model.js')
+const getQuestion = require('./Model.js')
 
 async function Controller() {
     
@@ -22,15 +24,13 @@ async function Controller() {
         }
        });
    
-     Person.saveData(user).then(()=> showResult(user))
+    const show = await  SaveData(user)
+    showResult(show)
     //  const newLocal = showResult(user);
-    const continueGame = await Person.newGame()
-     if (continueGame) {
-        
-     }
+    // const continueGame = await Person.newGame()
+    //  if (continueGame) {
 
-
-
+    //  }
 }
 
 
@@ -39,9 +39,5 @@ async function Controller() {
 // - запуск функции отображения вопросов по выбранной теме
 //  - если ответ верен, добавляем очки и проходим к след. вопросу (пред. шаг, след.объект), если нет, то пишем неверно и проходим к след вопросу. Если вопросов больше нет, то:
 // - вызов финального окна со статистикой
-
-
-
-Controller()
 
 module.exports = Controller;
