@@ -20,27 +20,45 @@ class View {
         console.log(`${checkedName}, начнем восходждение!`);
     }
 
-    static async choiseTheme(){
+    static async chooseTheme(){
 
         const theme = await select({
             message: 'Выбери тему вопросов:',
             choices: [
-            { name: 'Ночные ястребы', value: 'nighthawk_flashcard_data.txt' },
-            { name: 'Выдры кайфуши', value: 'otter_flashcard_data.txt' },
-            { name: 'Енот полоскун', value: 'raccoon_flashcard_data.txt' },
+            { name: 'Ночные ястребы', value: 'nighthawk' },
+            { name: 'Выдры кайфуши', value: 'otter' },
+            { name: 'Енот полоскун', value: 'raccoon' },
             ], 
             });
-            
+
+            return theme
     }
 
-    // static async showQuestion(string){
-        
-    // }
+    static async showQuestion(stringQuest){
+            const question  = await input({ message: stringQuest })
 
+            return question
+    }
 
+    static async showResult(player){
+        console.log(`Поздравляю ${player.name}! Ты набрал ${player.score} очков `)
+    }
 
+    static async newGame(){
+        const newGame = await select({
+            message: 'Хочешь продолжить игру?',
+            choices: [
+            { name: 'Да', value: true },
+            { name: 'Нет', value: false },
+            ], 
+            });
+
+            return newGame
+    }
 }
- View.choiseTheme()
+
+//  View.showQuestion("Что является основным источником пищи для ночных ястребов?").then(console.log);
+//  View.showResult({name:"Митя", score:50})
 
 // showStart()
 
